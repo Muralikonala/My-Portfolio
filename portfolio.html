@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konala S V Murali Ramakrishna Reddy - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://i.ibb.co/DDK61dT5/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #d1d5db; /* Light Gray Text */
+            background: linear-gradient(-45deg, #111827, #1f2937, #111827, #374151);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+        .section-title {
+            color: #ffffff;
+        }
+        .card {
+            background-color: #1f2937; /* Lighter shade of background */
+            border: 1px solid #374151;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1), 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        .skill-badge {
+            background-color: #374151; /* Gray for skill badges */
+            color: #e5e7eb;
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+        }
+        .skill-badge:hover {
+            transform: translateY(-4px);
+            background-color: #4b5563;
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* Blue Accent */
+            color: #ffffff;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        .header-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .header-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .header-link:hover::after {
+            width: 100%;
+        }
+        .header-link:hover {
+            color: #ffffff;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #a78bfa, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Muralikonala</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 header-link">About</a>
+                <a href="#experience" class="text-gray-300 header-link">Experience</a>
+                <a href="#projects" class="text-gray-300 header-link">Projects</a>
+                <a href="#education" class="text-gray-300 header-link">Education</a>
+                <a href="#contact" class="text-gray-300 header-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">About</a>
+            <a href="#experience" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Experience</a>
+            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Projects</a>
+            <a href="#education" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Education</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24 md:pt-32">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-gradient leading-tight">Konala S V Murali Ramakrishna Reddy</h1>
+            <p class="mt-4 text-lg md:text-xl text-blue-300">Aspiring Software Developer & AI Enthusiast</p>
+            <p class="mt-6 max-w-2xl text-gray-400">
+                A passionate and driven B.Tech student with a strong foundation in programming and a keen interest in leveraging AI and Machine Learning to build innovative solutions.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#projects" class="btn-primary font-semibold py-2 px-6 rounded-lg inline-flex items-center gap-2">
+                    View My Work
+                    <i data-lucide="arrow-down-right"></i>
+                </a>
+                <a href="mailto:konalamurali2006@gmail.com" class="bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg hover:bg-gray-600 transition duration-300">
+                    Get in Touch
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me & Skills Section -->
+        <section id="about" class="py-20">
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3">
+                    <h2 class="text-3xl font-bold mb-6 section-title flex items-center gap-3"><i data-lucide="user-round" class="text-blue-400"></i>About Me</h2>
+                    <div class="space-y-4 text-gray-300 text-lg">
+                        <p>
+                            I am a dedicated Computer Science student at Andhra University, driven by a fascination with how technology can solve complex, real-world problems. My journey began with a curiosity for programming, which has since evolved into a deep passion for software development, artificial intelligence, and machine learning.
+                        </p>
+                        <p>
+                            I thrive in challenging environments and am always eager to learn and apply new technologies. My goal is to contribute to impactful projects that push the boundaries of innovation. I believe in continuous learning and am constantly exploring new domains within computer science to broaden my skill set.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-bold mb-6 section-title flex items-center gap-3"><i data-lucide="sparkles" class="text-blue-400"></i>My Skills</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">C</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">C++</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">Java</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">Python</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">HTML</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">CSS</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">Linux</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">MongoDB</span>
+                        <span class="skill-badge py-2 px-4 rounded-full text-sm font-medium">AI/ML Concepts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title flex items-center justify-center gap-3"><i data-lucide="briefcase" class="text-blue-400"></i>Internship Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="card p-8 rounded-xl shadow-lg">
+                     <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white">AI/ML Intern</h3>
+                            <p class="text-blue-400 font-medium text-lg">Robocoupler Pvt Ltd</p>
+                        </div>
+                        <p class="text-gray-400 font-medium">May 2025 - Jul 2025</p>
+                    </div>
+                    <ul class="mt-6 list-disc list-inside space-y-2 text-gray-300">
+                        <li>Gained hands-on experience in computer vision, focusing on object detection methodologies.</li>
+                        <li>Worked with Roboflow datasets to train and validate custom object detection models.</li>
+                        <li>Assisted in the development and testing of a face recognition system utilizing Caffe models.</li>
+                        <li>Contributed to the initial stages of a basic mobile application development project.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title flex items-center justify-center gap-3"><i data-lucide="lightbulb" class="text-blue-400"></i>Projects</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <h3 class="text-xl font-semibold text-white mb-2">Object Detection with Roboflow</h3>
+                    <p class="text-gray-400 flex-grow">Developed a system to detect specific objects in images by leveraging curated datasets from Roboflow. This project involved data preprocessing, model training, and performance evaluation.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Python</span>
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Roboflow</span>
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Computer Vision</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <h3 class="text-xl font-semibold text-white mb-2">Face Recognition System</h3>
+                    <p class="text-gray-400 flex-grow">Implemented a face recognition module using pre-trained Caffe models. The project focused on understanding deep learning frameworks and applying them to facial verification tasks.</p>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Python</span>
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Caffe</span>
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">Deep Learning</span>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <h3 class="text-xl font-semibold text-white mb-2">Basic App Development</h3>
+                    <p class="text-gray-400 flex-grow">Contributed to the conceptualization and development of a basic mobile application, gaining foundational experience in app architecture, UI/UX principles, and development lifecycle.</p>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">App Development</span>
+                        <span class="skill-badge text-xs py-1 px-3 rounded-full">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certificates -->
+        <section id="education" class="py-20">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 section-title flex items-center gap-3"><i data-lucide="graduation-cap" class="text-blue-400"></i>Education</h2>
+                    <div class="space-y-6 border-l-2 border-gray-700 pl-6">
+                        <div class="relative">
+                            <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-blue-400"></div>
+                            <p class="text-gray-400">2023 - Present</p>
+                            <h3 class="text-xl font-semibold text-white">Bachelor of Technology, CSE</h3>
+                            <p class="text-gray-300">Andhra University, Visakhapatnam</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-blue-400"></div>
+                            <p class="text-gray-400">2021 - 2023</p>
+                            <h3 class="text-xl font-semibold text-white">Intermediate Education</h3>
+                            <p class="text-gray-300">Ascent Junior College, Visakhapatnam</p>
+                        </div>
+                         <div class="relative">
+                            <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-blue-400"></div>
+                            <p class="text-gray-400">2016 - 2021</p>
+                            <h3 class="text-xl font-semibold text-white">High School</h3>
+                            <p class="text-gray-300">Bhashyam High School, Srikakulam</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 section-title flex items-center gap-3"><i data-lucide="award" class="text-blue-400"></i>Certificates</h2>
+                    <div class="space-y-4">
+                        <div class="card p-4 rounded-lg flex items-center gap-4">
+                            <i data-lucide="star" class="text-yellow-400"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Basics Of Artificial Intelligence</h4>
+                                <p class="text-sm text-gray-400">Simplelearn</p>
+                            </div>
+                        </div>
+                        <div class="card p-4 rounded-lg flex items-center gap-4">
+                             <i data-lucide="star" class="text-yellow-400"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Python Basics</h4>
+                                <p class="text-sm text-gray-400">Simplelearn</p>
+                            </div>
+                        </div>
+                         <div class="card p-4 rounded-lg flex items-center gap-4">
+                             <i data-lucide="star" class="text-yellow-400"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Basics Of Machine Learning</h4>
+                                <p class="text-sm text-gray-400">Simplelearn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Contact Section -->
+        <section id="contact" class="py-20 text-center">
+             <h2 class="text-3xl font-bold mb-4 section-title">Get In Touch</h2>
+             <p class="max-w-xl mx-auto text-gray-400 mb-8">
+                 I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to connect, feel free to reach out.
+             </p>
+             <a href="mailto:konalamurali2006@gmail.com" class="btn-primary text-lg font-semibold py-3 px-8 rounded-lg inline-block">
+                 Say Hello!
+             </a>
+             <div class="mt-12 flex justify-center items-center space-x-6">
+                <a href="mailto:konalamurali2006@gmail.com" class="text-gray-400 hover:text-white" aria-label="Email">
+                    <i data-lucide="mail" class="w-7 h-7"></i>
+                </a>
+                 <a href="https://github.com/Muralikonala" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="GitHub">
+                    <i data-lucide="github" class="w-7 h-7"></i>
+                </a>
+                 <a href="https://www.linkedin.com/in/s-v-murali-ramakrishna-reddy-konala-535a04297/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-7 h-7"></i>
+                </a>
+                 <a href="tel:+919492054444" class="text-gray-400 hover:text-white" aria-label="Mobile Phone">
+                    <i data-lucide="phone" class="w-7 h-7"></i>
+                </a>
+             </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Konala S V Murali Ramakrishna Reddy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
