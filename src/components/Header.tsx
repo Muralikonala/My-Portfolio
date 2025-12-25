@@ -85,7 +85,7 @@ const Header: React.FC = () => {
 
             {/* Resume Download */}
             <motion.a
-              href="/Konala S V Murali Ramakrishna Reddy-CSE-AUCE.pdf"
+              href="/dist/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
               download
               className="hidden sm:flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md"
               whileHover={{ scale: 1.02 }}
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
                 </a>
               ))}
               <a
-                href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
+                href="/dist/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
                 download
                 className="sm:hidden flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors mt-2"
                 onClick={() => setIsMenuOpen(false)}
