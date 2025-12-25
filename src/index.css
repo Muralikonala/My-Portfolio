@@ -1,16 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 :root {
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 6rem; /* Increased to account for fixed header */
+}
+
 body {
-  background-color: #030014;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }

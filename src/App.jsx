@@ -1,3 +1,9 @@
-import Portfolio from './Portfolio'
-function App() { return <Portfolio /> }
+import Muralikonala from './Portfolio.tsx'
+
+function App() {
+  return (
+    <Muralikonala />
+  )
+}
+
 export default App
