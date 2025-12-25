@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
           </motion.a>
 
           <motion.a
-            href="/Konala S V Murali Ramakrishna Reddy-CSE-AUCE.pdf"
+            href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
             download
             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -3 }}
