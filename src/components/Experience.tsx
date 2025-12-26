@@ -31,7 +31,7 @@ const experience: ExperienceItem[] = [
     title: "Python Developer Intern",
     company: "Codec Technologies",
     date: "SEP 15, 2025 — NOV 15, 2025",
-    location: "On-site",
+    location: "Remote",
     type: "Full-time",
     details: [
       "Spearheaded backend logic development and modular code design using Python.",
