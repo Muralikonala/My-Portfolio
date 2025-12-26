@@ -125,12 +125,14 @@ const Certificates: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedCert(null)} // Close on background click
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-white dark:bg-gray-900 w-full max-w-5xl h-[85vh] md:h-[90vh] rounded-xl md:rounded-2xl overflow-hidden flex flex-col shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
             >
               <div className="p-3 md:p-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
                 <div className="min-w-0 pr-4">
@@ -154,11 +156,13 @@ const Certificates: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div className="flex-1 bg-gray-100 dark:bg-gray-950">
-                <iframe
-                  src={`${selectedCert.file}#toolbar=0&navpanes=0&scrollbar=0`}
-                  className="w-full h-full border-none"
-                  title="Certificate Viewer"
+              
+              {/* Image Container for Full View */}
+              <div className="flex-1 bg-gray-100 dark:bg-gray-950 flex items-center justify-center overflow-hidden p-2">
+                <img
+                  src={selectedCert.file}
+                  alt={selectedCert.title}
+                  className="max-h-full max-w-full object-contain shadow-lg"
                 />
               </div>
             </motion.div>
