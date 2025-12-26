@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((p, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ scale: 1.05, y: -10 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.2 }} className="group relative">
-              <div className="h-full bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 dark:border-gray-600 relative z-10 overflow-hidden">
+              <div className="h-full bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-gray-800/80 dark:to-gray-700/80 backdrop-blur-md p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-blue-100/50 dark:border-gray-600/50 relative z-10 overflow-hidden group-hover:border-blue-500/50">
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-center gap-3 mb-4">
