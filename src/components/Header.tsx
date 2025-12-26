@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+/* Added useScroll and useSpring to imports */
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Download, Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -9,7 +10,7 @@ const navLinks = [
   { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-{ name: 'Certificates', href: '#certificates' }, // New navigation item
+  { name: 'Certificates', href: '#certificates' },
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' }
 ];
@@ -18,6 +19,14 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  /* 1. Scroll Progress Logic */
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,12 +47,18 @@ const Header: React.FC = () => {
           : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md md:bg-white/80 md:dark:bg-gray-900/80'
       }`}
     >
+      {/* 2. The Scroll Progress Bar Element */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 origin-left z-50"
+        style={{ scaleX }}
+      />
+
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <motion.a
             href="#hero"
-            className={`text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-300 bg-clip-text text-transparent hover:from-purple-600 hover:via-blue-600 hover:to-purple-800 dark:hover:from-purple-400 dark:hover:via-blue-400 dark:hover:to-purple-300 transition-all duration-300`}
+            className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-300 bg-clip-text text-transparent hover:from-purple-600 hover:via-blue-600 hover:to-purple-800 dark:hover:from-purple-400 dark:hover:via-blue-400 dark:hover:to-purple-300 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
           >
             Muralikonala
@@ -69,7 +84,6 @@ const Header: React.FC = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -84,7 +98,6 @@ const Header: React.FC = () => {
               )}
             </motion.button>
 
-            {/* Resume Download */}
             <motion.a
               href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
               download
@@ -96,7 +109,6 @@ const Header: React.FC = () => {
               Resume
             </motion.a>
 
-            {/* Mobile Menu Button */}
             <button
               className={`md:hidden p-3 rounded-lg transition-colors ${
                 isMenuOpen 
@@ -111,32 +123,38 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-800">
-            <nav className="flex flex-col space-y-3 pt-4">
-              {navLinks.map((link, index) => (
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-800"
+            >
+              <nav className="flex flex-col space-y-3 pt-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all block"
+                  >
+                    {link.name}
+                  </a>
+                ))}
                 <a
-                  key={link.name}
-                  href={link.href}
+                  href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
+                  download
+                  className="sm:hidden flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors mt-2"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all block"
                 >
-                  {link.name}
+                  <Download className="w-4 h-4" />
+                  Resume
                 </a>
-              ))}
-              <a
-                href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
-                download
-                className="sm:hidden flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors mt-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Download className="w-4 h-4" />
-                Resume
-              </a>
-            </nav>
-          </div>
-        )}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

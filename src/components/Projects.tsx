@@ -57,7 +57,8 @@ const Projects: React.FC = () => {
               whileHover={{ scale: 1.05, y: -10 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-all duration-300"
+              /* Updated className below to match your requested style */
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 dark:border-gray-600"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">

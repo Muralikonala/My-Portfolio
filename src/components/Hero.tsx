@@ -1,10 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Download, ArrowDown, Sparkles } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Hero: React.FC = () => {
   const { theme } = useTheme();
+  
+  // Roles to cycle through
+  const roles = [
+    "Computer Science Engineer",
+    "AI/ML Specialist",
+    "Computer Vision Enthusiast",
+    "Full Stack Developer"
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000); // Change role every 3 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-28 md:pt-20 pb-16">
@@ -38,9 +55,22 @@ const Hero: React.FC = () => {
             <span className="block text-blue-600 dark:text-blue-400">
               Ramakrishna Reddy
             </span>
-            <span className="block text-xl md:text-2xl lg:text-3xl font-normal text-gray-600 dark:text-gray-400 mt-4">
-              Computer Science Engineer
-            </span>
+            
+            {/* Dynamic Typing Animation Area */}
+            <div className="h-12 mt-4 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentRoleIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="block text-xl md:text-2xl lg:text-3xl font-normal text-gray-600 dark:text-gray-400"
+                >
+                  {roles[currentRoleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </h1>
         </motion.div>
 
@@ -94,6 +124,7 @@ const Hero: React.FC = () => {
             href="https://github.com/Muralikonala"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub Profile"
             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.9 }}
@@ -105,6 +136,7 @@ const Hero: React.FC = () => {
             href="https://www.linkedin.com/in/s-v-murali-ramakrishna-reddy-konala-535a04297/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.9 }}
@@ -115,6 +147,7 @@ const Hero: React.FC = () => {
           <motion.a
             href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
             download
+            aria-label="Download Resume"
             className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-all duration-300"
             whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.9 }}

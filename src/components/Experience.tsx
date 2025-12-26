@@ -72,7 +72,6 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="py-32 px-4 md:px-6 relative">
-      {/* Background Elements */}
       <div className="absolute inset-0 opacity-20 overflow-hidden">
         <div className="absolute top-10 right-4 md:right-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tl from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl" />
@@ -119,28 +118,27 @@ const Experience: React.FC = () => {
               transition={{ duration: 0.8, delay: i * 0.2 }}
               className="group relative"
             >
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-emerald-50/80 to-blue-50/80 dark:from-gray-900/50 dark:to-gray-800/50 backdrop-blur-sm border border-emerald-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 overflow-hidden">
-                {/* Hover Glow Effect */}
+              <div 
+                /* Updated card styling to match your request */
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 dark:border-gray-600 relative z-10 overflow-hidden"
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10 grid md:grid-cols-3 gap-8">
-                  {/* Timeline Dot */}
                   <div className="hidden md:flex items-center justify-center">
-                    <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full shadow-lg shadow-emerald-500/50" />
+                    <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-lg shadow-blue-500/50" />
                     {i < experience.length - 1 && (
-                      <div className="absolute top-4 w-px h-full bg-gradient-to-b from-emerald-500/50 to-transparent" />
+                      <div className="absolute top-4 w-px h-full bg-gradient-to-b from-blue-500/50 to-transparent" />
                     )}
                   </div>
 
-                  {/* Content */}
                   <div className="md:col-span-2 space-y-6">
-                    {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {exp.title}
                         </h3>
-                        <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">
+                        <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
                           {exp.company}
                         </p>
                       </div>
@@ -157,7 +155,6 @@ const Experience: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Details */}
                     <ul className="space-y-3">
                       {exp.details.map((detail, idx) => (
                         <motion.li
@@ -168,13 +165,12 @@ const Experience: React.FC = () => {
                           transition={{ duration: 0.5, delay: idx * 0.1 }}
                           className="flex gap-3 text-gray-700 dark:text-gray-300 leading-relaxed"
                         >
-                          <ChevronRight className="text-emerald-500 shrink-0 mt-1" size={16} />
+                          <ChevronRight className="text-blue-500 shrink-0 mt-1" size={16} />
                           <span>{detail}</span>
                         </motion.li>
                       ))}
                     </ul>
 
-                    {/* Technologies */}
                     <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
                       {exp.technologies.map((tech, idx) => (
                         <motion.span
@@ -183,7 +179,7 @@ const Experience: React.FC = () => {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: idx * 0.05 }}
-                          className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-950/50 dark:to-blue-950/50 text-emerald-700 dark:text-emerald-300 rounded-full border border-emerald-200/50 dark:border-emerald-800/50"
+                          className="px-3 py-1 text-xs font-medium bg-white/50 dark:bg-gray-700/50 text-blue-700 dark:text-blue-300 rounded-full border border-blue-200/30 dark:border-gray-600/30"
                         >
                           {tech}
                         </motion.span>
@@ -191,10 +187,6 @@ const Experience: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-emerald-400/10 to-transparent rounded-full blur-xl" />
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-tr from-blue-400/10 to-transparent rounded-full blur-lg" />
               </div>
             </motion.div>
           ))}

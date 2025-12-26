@@ -71,7 +71,6 @@ const Certificates: React.FC = () => {
           </h2>
         </motion.div>
 
-        {/* Responsive Grid: Stacks on mobile, 2 columns on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {certificates.map((cert, index) => (
             <motion.div
@@ -80,9 +79,10 @@ const Certificates: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all group flex items-center gap-4 min-h-[90px]"
+              /* Updated className to match your gradient request */
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 dark:border-gray-600 group flex items-center gap-4 min-h-[90px]"
             >
-              <div className="p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
+              <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg shrink-0">
                 <ShieldCheck className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
 
@@ -102,7 +102,6 @@ const Certificates: React.FC = () => {
                 </div>
               </div>
 
-              {/* Only Direct View Button */}
               <div className="shrink-0">
                 <button
                   onClick={() => setSelectedCert(cert)}
@@ -117,7 +116,6 @@ const Certificates: React.FC = () => {
         </div>
       </div>
 
-      {/* Responsive Modal Viewer */}
       <AnimatePresence>
         {selectedCert && (
           <motion.div
@@ -125,14 +123,14 @@ const Certificates: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setSelectedCert(null)} // Close on background click
+            onClick={() => setSelectedCert(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-white dark:bg-gray-900 w-full max-w-5xl h-[85vh] md:h-[90vh] rounded-xl md:rounded-2xl overflow-hidden flex flex-col shadow-2xl"
-              onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="p-3 md:p-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
                 <div className="min-w-0 pr-4">
@@ -157,7 +155,6 @@ const Certificates: React.FC = () => {
                 </div>
               </div>
               
-              {/* Image Container for Full View */}
               <div className="flex-1 bg-gray-100 dark:bg-gray-950 flex items-center justify-center overflow-hidden p-2">
                 <img
                   src={selectedCert.file}
