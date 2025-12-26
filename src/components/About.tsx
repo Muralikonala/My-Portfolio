@@ -1,11 +1,40 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
 import { Target, Lightbulb, Users, Award } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+
+// Reusable Counter Component
+const StatCounter = ({ target, label, suffix = "", colorClass = "" }: { target: number, label: string, suffix?: string, colorClass?: string }) => {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(nodeRef, { once: true });
+
+  useEffect(() => {
+    if (isInView && nodeRef.current) {
+      const node = nodeRef.current;
+      const controls = animate(0, target, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(value) {
+          node.textContent = Math.round(value).toString();
+        },
+      });
+
+      return () => controls.stop();
+    }
+  }, [isInView, target]);
+
+  return (
+    <div className="text-center">
+      <div className={`text-3xl md:text-4xl font-bold ${colorClass}`}>
+        <span ref={nodeRef}>0</span>{suffix}
+      </div>
+      <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+        {label}
+      </div>
+    </div>
+  );
+};
 
 const About: React.FC = () => {
-  const { theme } = useTheme();
-
   const highlights = [
     {
       icon: Target,
@@ -47,8 +76,7 @@ const About: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* About Content */}
+        <div className="max-w-4xl mx-auto mb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,36 +98,29 @@ const About: React.FC = () => {
                   from computer vision applications to backend systems. I'm particularly passionate about using technology
                   to solve real-world problems and create meaningful impact.
                 </p>
-                <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
-                  or participating in tech communities. I believe in continuous learning and staying updated with
-                  the rapidly evolving field of AI and software development.
-                </p>
               </div>
             </div>
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">4+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Internships</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">10+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
-              </div>
+            {/* Animated Quick Stats */}
+            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <StatCounter 
+                target={4} 
+                label="Internships" 
+                suffix="+" 
+                colorClass="text-blue-600 dark:text-blue-400" 
+              />
+              <StatCounter 
+                target={10} 
+                label="Projects" 
+                suffix="+" 
+                colorClass="text-purple-600 dark:text-purple-400" 
+              />
             </div>
           </motion.div>
         </div>
 
         {/* Highlights Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((highlight, index) => (
             <motion.div
               key={highlight.title}
@@ -120,7 +141,7 @@ const About: React.FC = () => {
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
