@@ -5,6 +5,7 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Certificates from './components/Certificates';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -20,6 +21,7 @@ const Muralikonala: React.FC = () => {
           <Experience />
           <Skills />
           <Projects />
+          <Certificates />
           <Education />
           <Contact />
         </main>

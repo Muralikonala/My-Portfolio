@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Education: React.FC = () => {
@@ -11,7 +11,7 @@ const Education: React.FC = () => {
       degree: "B.Tech, Computer Science",
       institution: "Andhra University",
       period: "2023 — 2027",
-      location: "Visakhapatnam, India",
+      location: "Visakhapatnam,Ap,India",
       status: "Current",
       gpa: "Pursuing",
       highlights: [
@@ -24,7 +24,7 @@ const Education: React.FC = () => {
       degree: "Intermediate Education (MPC)",
       institution: "Ascent Junior College",
       period: "2021 — 2023",
-      location: "Visakhapatnam, India",
+      location: "Visakhapatnam,Ap,India",
       status: "Completed",
       gpa: "87.7%",
       highlights: [
@@ -37,7 +37,7 @@ const Education: React.FC = () => {
       degree: "High School Education",
       institution: "Bhashyam High School",
       period: "2016 — 2021",
-      location: "Visakhapatnam, India",
+      location: "Srikakulam,Ap,India",
       status: "Completed",
       gpa: "100%",
       highlights: [
@@ -48,54 +48,9 @@ const Education: React.FC = () => {
     }
   ];
 
-  const certifications = [
-    {
-      title: "Full Stack AI Internship",
-      issuer: "Robocoupler",
-      date: "2025",
-      type: "Professional Certification"
-    },
-    {
-      title: "Frontend Development Internship",
-      issuer: "CodeAlpha",
-      date: "2025",
-      type: "Professional Certification"
-    },
-    {
-      title: "Python Development Internship",
-      issuer: "Codec Technologies",
-      date: "2025",
-      type: "Professional Certification"
-    },
-    {
-      title: "Basics Of Artificial Intelligence",
-      issuer: "Simplelearn",
-      date: "2024",
-      type: "Online Course"
-    },
-    {
-      title: "Basics Of Machine Learning",
-      issuer: "Simplelearn",
-      date: "2024",
-      type: "Online Course"
-    },
-    {
-      title: "Python Basics",
-      issuer: "Simplelearn",
-      date: "2024",
-      type: "Online Course"
-    },
-     {
-      title: "Complete Web Development",
-      issuer: "Udemy",
-      date: "2025",
-      type: "Online Course"
-    }
-  ];
-
   return (
     <section id="education" className="py-20 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,33 +59,29 @@ const Education: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Education & Certifications
+            Academic Background
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Building a strong foundation through academic excellence and continuous learning
+            Building a strong foundation through academic excellence.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Education Timeline */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
-              <GraduationCap className="text-purple-600 dark:text-purple-400" size={24} />
-              Academic Background
-            </h3>
-
-            <div className="space-y-6">
-              {educationData.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm border border-purple-100 dark:border-gray-600"
-                >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
+        <div className="space-y-6">
+          {educationData.map((edu, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm border border-purple-100 dark:border-gray-600"
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                <div className="flex gap-4">
+                   <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl h-fit">
+                      <GraduationCap className="text-purple-600 dark:text-purple-400" size={24} />
+                   </div>
+                   <div>
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                         {edu.degree}
                       </h4>
@@ -138,85 +89,39 @@ const Education: React.FC = () => {
                         {edu.institution}
                       </p>
                     </div>
+                </div>
 
-                    <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="flex items-center gap-2">
-                        <Calendar size={14} />
-                        <span>{edu.period}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={14} />
-                        <span>{edu.location}</span>
-                      </div>
-                      <div className={`px-2 py-1 rounded-full text-xs font-medium ${edu.status === 'Current' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300' : 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300'}`}>
-                        {edu.status}
-                      </div>
-                    </div>
+                <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-2">
+                    <Calendar size={14} />
+                    <span>{edu.period}</span>
                   </div>
-
-                  <div className="mb-4">
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      Grade: {edu.gpa}
-                    </span>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} />
+                    <span>{edu.location}</span>
                   </div>
-
-                  <ul className="space-y-2">
-                    {edu.highlights.map((highlight, idx) => (
-                      <li key={idx} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 shrink-0" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
-              <Award className="text-pink-600 dark:text-pink-400" size={24} />
-              Professional Certifications
-            </h3>
-
-            <div className="grid gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-gray-800 dark:to-gray-700 p-4 rounded-lg shadow-sm border border-orange-100 dark:border-gray-600"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                      <Award className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-gray-900 dark:text-white mb-1">
-                        {cert.title}
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                        {cert.issuer}
-                      </p>
-                      <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <Calendar size={12} />
-                          {cert.date}
-                        </span>
-                        <span className={`px-2 py-1 rounded-full ${cert.type === 'Professional Certification' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300' : 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300'}`}>
-                          {cert.type}
-                        </span>
-                      </div>
-                    </div>
+                  <div className={`w-fit px-2 py-1 rounded-full text-xs font-medium ${edu.status === 'Current' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300' : 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300'}`}>
+                    {edu.status}
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Grade: {edu.gpa}
+                </span>
+              </div>
+
+              <ul className="space-y-2">
+                {edu.highlights.map((highlight, idx) => (
+                  <li key={idx} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 shrink-0" />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
