@@ -8,49 +8,49 @@ const certificates = [
     issuer: "Robocoupler Pvt Ltd",
     date: "July 2025",
     type: "Professional",
-    file: "/Robocoupler certificate.pdf"
+    file: "/Robocoupler certificate.jpg"
   },
   {
     title: "Frontend Development Internship",
     issuer: "CodeAlpha",
     date: "Oct 2025",
     type: "Professional",
-    file: "/CodeAlpha  certificate.pdf"
+    file: "/CodeAlpha  certificate.jpg"
   },
   {
     title: "Python Development Internship",
     issuer: "Codec Technologies",
     date: "Nov 2025",
     type: "Professional",
-    file: "/Codec tech Internship Certificate.pdf"
+    file: "/Codec tech Internship Certificate.jpg"
   },
   {
     title: "Microsoft Security Foundations",
     issuer: "Microsoft",
     date: "2025",
     type: "Security",
-    file: "/Microsoft Security Foundations Certificate.pdf"
+    file: "/Microsoft Security Foundations Certificate.jpg"
   },
   {
     title: "SIH Hackathon Participation",
     issuer: "Smart India Hackathon",
     date: "2025",
     type: "Achievement",
-    file: "/SIH Hackaton certificate.pdf"
+    file: "/SIH Hackaton certificate.jpg"
   },
   {
     title: "Basics Of Artificial Intelligence",
     issuer: "Simplilearn",
     date: "2025",
     type: "Course",
-    file: "/Simple learn -AI certificate.pdf"
+    file: "/Simple learn -AI certificate.jpg"
   },
   {
     title: "Python Basics",
     issuer: "Skill India",
     date: "2025",
     type: "Certification",
-    file: "/Skill india Python certificate.pdf"
+    file: "/Skill india Python certificate.jpg"
   }
 ];
 
