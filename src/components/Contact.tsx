@@ -1,15 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
-import { Mail, Phone, Github, Linkedin, Send, MapPin, CheckCircle } from 'lucide-react';
+// FIXED: Ensure all icons are imported to prevent crashes
+import { Mail, Phone, Github, Linkedin, Send, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  // 1. Ensure "id" is your actual Form ID from formspree.io
   const [state, handleSubmit] = useForm("xlgeeork");
+  
+  const [showDirectDetails, setShowDirectDetails] = useState(false);
+
+  // 2. DEBUGGER: This will tell us the exact error in your browser console (F12)
+  useEffect(() => {
+    if (state.errors) {
+      console.error("Formspree Error Details:", state.errors);
+      setShowDirectDetails(true); // Automatically show your phone/email if form fails
+    }
+    if (state.succeeded) {
+      console.log("Form successfully sent!");
+    }
+  }, [state.errors, state.succeeded]);
 
   const contactMethods = [
     { icon: Mail, title: "Email", value: "konalamurali2006@gmail.com", href: "mailto:konalamurali2006@gmail.com" },
     { icon: Phone, title: "Phone", value: "+91 9492054444", href: "tel:+919492054444" },
-    { icon: MapPin, title: "Location", value: "Andhra Pradesh, India", href: "#" }
   ];
 
   if (state.succeeded) {
@@ -37,49 +51,100 @@ const Contact: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get In <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Let's collaborate and build something amazing together</p>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            {showDirectDetails 
+              ? "Form submission failed. Please reach me directly using the info below." 
+              : "Let's collaborate and build something amazing together"}
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {contactMethods.map((m, i) => (
-            <motion.a key={m.title} href={m.href} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.1 }} className="group relative block">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-sm border border-blue-100 dark:border-gray-600 hover:shadow-lg transition-all duration-300 text-center relative z-10 overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mx-auto mb-4"><m.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" /></div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors">{m.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{m.value}</p>
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
+        <AnimatePresence>
+          {showDirectDetails && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="grid md:grid-cols-3 gap-8 mb-12 overflow-hidden"
+            >
+              {contactMethods.map((m, i) => (
+                <motion.a 
+                  key={m.title} 
+                  href={m.href} 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative block"
+                >
+                  <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 p-6 rounded-xl shadow-sm border border-red-100 dark:border-red-900/30 text-center relative z-10 overflow-hidden h-full transition-all hover:shadow-lg">
+                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <m.icon className="w-6 h-6 text-red-600 dark:text-red-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600 transition-colors">{m.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">{m.value}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="max-w-2xl mx-auto mb-12 group relative">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="max-w-2xl mx-auto mb-20 group relative">
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-sm border border-blue-100 dark:border-gray-600 relative z-10 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Send a Message</h3>
+              
+              {state.errors && (
+                <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-3 text-red-700 dark:text-red-400 text-sm">
+                  <AlertCircle size={18} />
+                  <span>Submission error. Check your internet or Use the Direct contact Methods.</span>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <input id="name" name="name" type="text" required placeholder="Your Name" className="w-full px-4 py-3 bg-white/50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors" />
                   <div className="space-y-1">
+                    <label htmlFor="name" className="sr-only">Your Name</label>
+                    <input id="name" name="name" type="text" required placeholder="Your Name" className="w-full px-4 py-3 bg-white/50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors" />
+                  </div>
+                  <div className="space-y-1">
+                    <label htmlFor="email" className="sr-only">Your Email</label>
                     <input id="email" name="email" type="email" required placeholder="Your Email" className="w-full px-4 py-3 bg-white/50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors" />
                     <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
                   </div>
                 </div>
                 <div className="space-y-1">
+                  <label htmlFor="message" className="sr-only">Your Message</label>
                   <textarea id="message" name="message" required rows={4} placeholder="Your Message" className="w-full px-4 py-3 bg-white/50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors resize-none" />
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
                 </div>
-                <button type="submit" disabled={state.submitting} className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 shadow-md shadow-blue-500/20">{state.submitting ? "Sending..." : <><Send size={18} /> Send Message</>}</button>
+                <button 
+                  type="submit" 
+                  disabled={state.submitting} 
+                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 shadow-md shadow-blue-500/20"
+                >
+                  {state.submitting ? "Sending..." : <><Send size={18} /> Send Message</>}
+                </button>
               </form>
             </div>
           </div>
         </motion.div>
-        {/* Footer info remains same */}
+
+        <div className="text-center pt-8 border-t border-gray-200 dark:border-gray-800">
+          <div className="flex justify-center gap-6 mb-4">
+            <a href="https://github.com/Muralikonala" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
+              <Github size={20} />
+            </a>
+            <a href="https://www.linkedin.com/..." target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
+              <Linkedin size={20} />
+            </a>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            © {new Date().getFullYear()} Muralikonala. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
 };
+
 export default Contact;
