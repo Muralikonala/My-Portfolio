@@ -24,6 +24,7 @@ const Contact: React.FC = () => {
   const contactMethods = [
     { icon: Mail, title: "Email", value: "konalamurali2006@gmail.com", href: "mailto:konalamurali2006@gmail.com" },
     { icon: Phone, title: "Phone", value: "+91 9492054444", href: "tel:+919492054444" },
+    { icon: Mail, title: "Email", value: "muralimurzxx@flash.co", href: "mailto:muralimurzxx@flash.co" },
   ];
 
   if (state.succeeded) {
