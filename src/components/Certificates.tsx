@@ -6,13 +6,13 @@ const Certificates: React.FC = () => {
   const [selectedCert, setSelectedCert] = useState<any | null>(null);
 
   const certificates = [
-    { title: "Full Stack AI Internship", issuer: "Robocoupler Pvt Ltd", date: "July 2025", type: "Professional", file: "/Robocoupler certificate.jpg" },
-    { title: "Frontend Development Internship", issuer: "CodeAlpha", date: "Oct 2025", type: "Professional", file: "/CodeAlpha  certificate.jpg" },
-    { title: "Python Development Internship", issuer: "Codec Technologies", date: "Nov 2025", type: "Professional", file: "/Codec tech Internship Certificate.jpg" },
-    { title: "Microsoft Security Foundations", issuer: "Microsoft", date: "2025", type: "Security", file: "/Microsoft Security Foundations Certificate.jpg" },
-    { title: "SIH Hackathon Participation", issuer: "Smart India Hackathon", date: "2025", type: "Achievement", file: "/SIH Hackaton certificate.jpg" },
-    { title: "Basics Of Artificial Intelligence", issuer: "Simplilearn", date: "2025", type: "Course", file: "/Simple learn -AI certificate.jpg" },
-    { title: "Python Basics", issuer: "Skill India", date: "2025", type: "Certification", file: "/Skill india Python certificate.jpg" }
+    { title: "Full Stack AI Internship", issuer: "Robocoupler Pvt Ltd", date: "July 2025", type: "Professional", file: "/Robocoupler certificate.webp" },
+    { title: "Frontend Development Internship", issuer: "CodeAlpha", date: "Oct 2025", type: "Professional", file: "/CodeAlpha  certificate.webp" },
+    { title: "Python Development Internship", issuer: "Codec Technologies", date: "Nov 2025", type: "Professional", file: "/Codec tech Internship Certificate.webp" },
+    { title: "Microsoft Security Foundations", issuer: "Microsoft", date: "2025", type: "Security", file: "/Microsoft Security Foundations Certificate.webp" },
+    { title: "SIH Hackathon Participation", issuer: "Smart India Hackathon", date: "2025", type: "Achievement", file: "/SIH Hackaton certificate.webp" },
+    { title: "Basics Of Artificial Intelligence", issuer: "Simplilearn", date: "2025", type: "Course", file: "/Simple learn -AI certificate.webp" },
+    { title: "Python Basics", issuer: "Skill India", date: "2025", type: "Certification", file: "/Skill india Python certificate.webp" }
   ];
 
   return (
