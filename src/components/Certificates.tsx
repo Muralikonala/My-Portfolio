@@ -9,6 +9,7 @@ const Certificates: React.FC = () => {
     { title: "Full Stack AI Internship", issuer: "Robocoupler Pvt Ltd", date: "July 2025", type: "Professional", file: "/Robocoupler certificate.jpg" },
     { title: "Frontend Development Internship", issuer: "CodeAlpha", date: "Oct 2025", type: "Professional", file: "/CodeAlpha  certificate.jpg" },
     { title: "Python Development Internship", issuer: "Codec Technologies", date: "Nov 2025", type: "Professional", file: "/Codec tech Internship Certificate.jpg" },
+    { title: "MERN Full Stack Development Internship", issuer: "Uptoskills", date: "Jan 2026", type: "Professional", file: "/Uptoskills Certificate.jpg" },
     { title: "Microsoft Security Foundations", issuer: "Microsoft", date: "2025", type: "Security", file: "/Microsoft Security Foundations Certificate.jpg" },
     { title: "SIH Hackathon Participation", issuer: "Smart India Hackathon", date: "2025", type: "Achievement", file: "/SIH Hackaton certificate.jpg" },
     { title: "Basics Of Artificial Intelligence", issuer: "Simplilearn", date: "2025", type: "Course", file: "/Simple learn -AI certificate.jpg" },

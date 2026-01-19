@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
             <a href="https://github.com/Muralikonala" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://www.linkedin.com/..." target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
+            <a href="https://www.linkedin.com/in/s-v-murali-ramakrishna-reddy-konala-535a04297/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
               <Linkedin size={20} />
             </a>
           </div>
