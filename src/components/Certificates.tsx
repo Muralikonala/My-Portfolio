@@ -13,7 +13,8 @@ const Certificates: React.FC = () => {
     { title: "Microsoft Security Foundations", issuer: "Microsoft", date: "2025", type: "Security", file: "/Microsoft Security Foundations Certificate.jpg" },
     { title: "SIH Hackathon Participation", issuer: "Smart India Hackathon", date: "2025", type: "Achievement", file: "/SIH Hackaton certificate.jpg" },
     { title: "Basics Of Artificial Intelligence", issuer: "Simplilearn", date: "2025", type: "Course", file: "/Simple learn -AI certificate.jpg" },
-    { title: "Python Basics", issuer: "Skill India", date: "2025", type: "Certification", file: "/Skill india Python certificate.jpg" }
+    { title: "Python Basics", issuer: "Skill India", date: "2025", type: "Certification", file: "/Skill india Python certificate.jpg" },
+    { title: "Quantum Fundamentals", issuer: "Qubitech,wiser", date: "2026", type: "Certification", file: "/Quantum govt.jpg" }
   ];
 
   return (
