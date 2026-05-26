@@ -6,7 +6,8 @@ const Projects: React.FC = () => {
   const projects = [
     { icon: Cpu, title: "Robocoupler AI/ML Projects", description: "Full-stack AI/ML development from Robocoupler internship featuring computer vision solutions: object detection system trained on Roboflow datasets for high-accuracy classification, and face recognition security module built with Caffe deep learning framework.", tags: ["Python", "Computer Vision", "Roboflow", "Caffe", "Deep Learning"] },
     { icon: Globe, title: "CodeAlpha Frontend Projects", description: "Comprehensive frontend development portfolio including an interactive calculator with advanced functions, dynamic image gallery with filtering, and responsive portfolio website with modern animations.", tags: ["JavaScript", "React", "HTML", "CSS", "Frontend"] },
-    { icon: Bot, title: "Codec Technologies Python Projects", description: "Diverse Python development projects including CLI calculator, real-time stock market web dashboard with data visualization, and AI-powered web assistant using Google's Gemini for natural language processing.", tags: ["Python", "AI", "Web", "Finance", "Gemini"] }
+    { icon: Bot, title: "Codec Technologies Python Projects", description: "Diverse Python development projects including CLI calculator, real-time stock market web dashboard with data visualization, and AI-powered web assistant using Google's Gemini for natural language processing.", tags: ["Python", "AI", "Web", "Finance", "Gemini"] },
+    { icon: Cpu, title: "UptoSkills-HRMS Dashboard ", description: "Designed and developed a responsive HRMS dashboard using the MERN Stack and Tailwind CSS. Bridged the gap between design and engineering by translating complex Figma layouts into interactive React components while collaborating with a remote team to manage workflows and deliver milestones.", tags: ["Mern", "AI", "Figma", "postgresql", "Gemini"] }
   ];
 
   return (
