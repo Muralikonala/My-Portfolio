@@ -112,7 +112,7 @@ const Header: React.FC = () => {
             </motion.button>
 
             <motion.a
-              href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
+              href="/Resume.pdf"
               download
               className="hidden sm:flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium"
             >
@@ -154,7 +154,7 @@ const Header: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="/Konala S V Murali Ramakrishna Reddy-Resume.pdf"
+                  href="/Resume.pdf"
                   download
                   className="sm:hidden flex items-center gap-2 px-3 py-3 bg-blue-600 text-white rounded-lg font-medium mt-2"
                   onClick={() => setIsMenuOpen(false)}
