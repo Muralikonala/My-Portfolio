@@ -34,7 +34,6 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 px-4 md:px-6 relative perspective-1000">
-      {/* Background Decor */}
       <div className="absolute inset-0 opacity-20 overflow-hidden pointer-events-none">
         <div className="absolute top-10 right-4 md:right-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tl from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl" />
@@ -61,7 +60,7 @@ const Projects: React.FC = () => {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm group-hover:blur-md" />
               
-              <div className="h-full bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl relative z-10 flex flex-col overflow-hidden">
+              <div className="h-full bg-white dark:bg-gray-900 border border-transparent dark:border-gray-700 p-8 rounded-2xl shadow-xl relative z-10 flex flex-col overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full" />
                 
                 <div className="flex items-center gap-4 mb-6 relative z-10">
@@ -79,14 +78,14 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
                 
-                {/* Conditional Rendering for GitHub Button */}
                 {p.github && (
                   <div className="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800">
                     <a 
                       href={p.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white rounded-xl text-base font-bold transition-all shadow-lg hover:shadow-xl group/btn"
+                      // ENHANCED: This targets the button specifically in dark mode for a glowing, premium look
+                      className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-gradient-to-r dark:from-blue-600 dark:to-purple-600 dark:hover:from-blue-500 dark:hover:to-purple-500 text-white rounded-xl text-base font-bold transition-all shadow-lg dark:hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] group/btn"
                     >
                       <Github size={20} className="group-hover/btn:-translate-y-1 transition-transform" /> 
                       View Source Code

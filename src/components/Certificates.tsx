@@ -18,23 +18,27 @@ const Certificates: React.FC = () => {
   ];
 
   return (
-    <section id="certificates" className="py-20 px-4 md:px-6 relative">
+    <section id="certificates" className="py-20 relative">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20 overflow-hidden pointer-events-none">
         <div className="absolute top-10 right-4 md:right-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tl from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      {/* TEXT CONTENT: Kept centered with max-w-7xl */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Professional <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Certifications</span>
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">Slide to view all certificates</p>
         </motion.div>
+      </div>
 
-        {/* HORIZONTAL SLIDER */}
-        <div className="flex overflow-x-auto gap-6 pb-12 pt-4 px-4 snap-x snap-mandatory 
+      {/* HORIZONTAL SLIDER: Pulled outside of max-w-7xl so it spans edge-to-edge */}
+      <div className="w-full relative z-10">
+        {/* We add px-4 md:px-[calc((100vw-80rem)/2)] to align the first card with the title, but let it scroll to the edges */}
+        <div className="flex overflow-x-auto gap-6 pb-12 pt-4 px-4 md:px-[max(1.5rem,calc((100vw-80rem)/2))] snap-x snap-mandatory 
                         [&::-webkit-scrollbar]:h-2.5 
                         [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-200 [&::-webkit-scrollbar-track]:dark:bg-gray-800 
                         [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-blue-500 hover:[&::-webkit-scrollbar-thumb]:bg-blue-600">
@@ -94,6 +98,8 @@ const Certificates: React.FC = () => {
               </div>
             </motion.div>
           ))}
+          {/* Add a spacer at the end so the last card doesn't get stuck to the edge */}
+          <div className="min-w-[1rem] shrink-0" aria-hidden="true" />
         </div>
       </div>
 
