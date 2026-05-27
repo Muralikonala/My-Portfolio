@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,11 +8,13 @@ import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import BackToTop from './components/BackToTop'; // 1. Import the component
+import BackToTop from './components/BackToTop';
+import ResumeModal from './components/ResumeModal'; // 1. Imported Modal
 import { ThemeProvider } from './contexts/ThemeContext';
 
 const Muralikonala: React.FC = () => {
   const spotlightRef = useRef<HTMLDivElement>(null);
+  const [isResumeOpen, setIsResumeOpen] = useState(false); // 2. Modal State
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -28,7 +30,8 @@ const Muralikonala: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-slate-100 dark:bg-gray-950 transition-colors duration-300 text-slate-800 dark:text-gray-200">
+      {/* FIXED DARK MODE: Changed dark:bg-gray-950 to dark:bg-slate-900 for a beautiful deep blue/gray */}
+      <div className="relative min-h-screen bg-slate-100 dark:bg-slate-900 transition-colors duration-300 text-slate-800 dark:text-gray-200">
         
         <div
           ref={spotlightRef}
@@ -38,9 +41,9 @@ const Muralikonala: React.FC = () => {
           }}
         />
 
-        <Header />
+        <Header onOpenResume={() => setIsResumeOpen(true)} />
         <main className="relative z-10">
-          <Hero />
+          <Hero onOpenResume={() => setIsResumeOpen(true)} />
           <About />
           <Experience />
           <Skills />
@@ -49,8 +52,11 @@ const Muralikonala: React.FC = () => {
           <Education />
           <Contact />
           
-          <BackToTop /> {/* 2. Place it here */}
+          <BackToTop />
         </main>
+
+        {/* 3. The Modal Component */}
+        <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
       </div>
     </ThemeProvider>
   );
