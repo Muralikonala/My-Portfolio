@@ -8,16 +8,15 @@ import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import BackToTop from './components/BackToTop'; // 1. Import the component
 import { ThemeProvider } from './contexts/ThemeContext';
 
 const Muralikonala: React.FC = () => {
   const spotlightRef = useRef<HTMLDivElement>(null);
 
-  // Highly optimized mouse tracking using CSS variables to prevent re-rendering the whole page
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (spotlightRef.current) {
-        // Set CSS variables for the exact mouse coordinates on the screen
         spotlightRef.current.style.setProperty('--mouse-x', `${e.clientX}px`);
         spotlightRef.current.style.setProperty('--mouse-y', `${e.clientY}px`);
       }
@@ -29,11 +28,8 @@ const Muralikonala: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="relative min-h-screen bg-slate-100 dark:bg-gray-950 transition-colors duration-300 text-slate-800 dark:text-gray-200">
         
-        {/* THE GLOBAL SPOTLIGHT */}
-        {/* pointer-events-none ensures it doesn't block you from clicking buttons */}
-        {/* hidden md:block ensures it doesn't run on mobile phones where there is no mouse */}
         <div
           ref={spotlightRef}
           className="pointer-events-none fixed inset-0 z-50 hidden md:block mix-blend-color-dodge dark:mix-blend-color-dodge"
@@ -52,6 +48,8 @@ const Muralikonala: React.FC = () => {
           <Certificates />
           <Education />
           <Contact />
+          
+          <BackToTop /> {/* 2. Place it here */}
         </main>
       </div>
     </ThemeProvider>
