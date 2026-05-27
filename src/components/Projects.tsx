@@ -7,44 +7,63 @@ const Projects: React.FC = () => {
     { icon: Cpu, title: "Robocoupler AI/ML Projects", description: "Full-stack AI/ML development from Robocoupler internship featuring computer vision solutions: object detection system trained on Roboflow datasets for high-accuracy classification, and face recognition security module built with Caffe deep learning framework.", tags: ["Python", "Computer Vision", "Roboflow", "Caffe", "Deep Learning"] },
     { icon: Globe, title: "CodeAlpha Frontend Projects", description: "Comprehensive frontend development portfolio including an interactive calculator with advanced functions, dynamic image gallery with filtering, and responsive portfolio website with modern animations.", tags: ["JavaScript", "React", "HTML", "CSS", "Frontend"] },
     { icon: Bot, title: "Codec Technologies Python Projects", description: "Diverse Python development projects including CLI calculator, real-time stock market web dashboard with data visualization, and AI-powered web assistant using Google's Gemini for natural language processing.", tags: ["Python", "AI", "Web", "Finance", "Gemini"] },
-    { icon: Cpu, title: "UptoSkills-HRMS Dashboard ", description: "Designed and developed a responsive HRMS dashboard using the MERN Stack and Tailwind CSS. Bridged the gap between design and engineering by translating complex Figma layouts into interactive React components while collaborating with a remote team to manage workflows and deliver milestones.", tags: ["Mern", "AI", "Figma", "postgresql", "Gemini"] }
+    { icon: Cpu, title: "UptoSkills-HRMS Dashboard", description: "Designed and developed a responsive HRMS dashboard using the MERN Stack and Tailwind CSS. Bridged the gap between design and engineering by translating complex Figma layouts into interactive React components while collaborating with a remote team to manage workflows and deliver milestones.", tags: ["MERN", "AI", "Figma", "PostgreSQL", "React"] }
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 md:px-6 relative">
+    <section id="projects" className="py-20 px-4 md:px-6 relative perspective-1000">
       <div className="absolute inset-0 opacity-20 overflow-hidden pointer-events-none">
         <div className="absolute top-10 right-4 md:right-20 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tl from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Featured <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Showcasing innovative projects from internships and personal development</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((p, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ scale: 1.05, y: -10 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.2 }} className="group relative">
-              <div className="h-full bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-gray-800/80 dark:to-gray-700/80 backdrop-blur-md p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-blue-100/50 dark:border-gray-600/50 relative z-10 overflow-hidden group-hover:border-blue-500/50">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"><p.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" /></div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">{p.title}</h3>
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 50, scale: 0.9 }} 
+              whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+              whileHover={{ translateY: -10, scale: 1.02 }} 
+              viewport={{ once: true, margin: "-50px" }} 
+              transition={{ duration: 0.5, delay: i * 0.1, type: "spring" }} 
+              className="group relative"
+            >
+              {/* Animated glowing border effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm group-hover:blur-md" />
+              
+              <div className="h-full bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl relative z-10 flex flex-col overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full" />
+                
+                <div className="flex items-center gap-4 mb-6 relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/20 rounded-xl flex items-center justify-center shadow-inner">
+                    <p.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{p.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-                    {p.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">{tag}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors"><Github size={16} />Code</button>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"><ExternalLink size={16} />Demo</button>
-                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">{p.title}</h3>
+                </div>
+                
+                <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg flex-grow relative z-10">{p.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-8 relative z-10 mt-auto">
+                  {p.tags.map(tag => (
+                    <span key={tag} className="px-4 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-semibold shadow-sm hover:border-blue-400 transition-colors">{tag}</span>
+                  ))}
+                </div>
+                
+                <div className="flex gap-4 relative z-10 mt-auto pt-6 border-t border-gray-100 dark:border-gray-800">
+                  <button className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-sm font-bold transition-all border border-gray-200 dark:border-gray-700 group/btn">
+                    <Github size={18} className="group-hover/btn:-translate-y-1 transition-transform" /> Code
+                  </button>
+                  <button className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-sm font-bold transition-all shadow-lg shadow-blue-500/30 group/btn">
+                    <ExternalLink size={18} className="group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" /> Demo
+                  </button>
                 </div>
               </div>
             </motion.div>
